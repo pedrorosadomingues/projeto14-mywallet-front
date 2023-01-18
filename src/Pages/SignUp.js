@@ -4,14 +4,23 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function SignUp() {
+    const [form, setForm] = useState({ name: "", email: "", password: "", confirmPassword: "" });
+
+    const navigate = useNavigate();
+
+    function handleForm(e) {
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value });
+    }
+
     return (
         <SignUpStyle>
             <img src={logo} alt="MyWallet-logo" />
             <form>
-                <input type="text" placeholder="Nome" />
-                <input type="email" placeholder="E-mail" />
-                <input type="password" placeholder="Senha" />
-                <input type="password" placeholder="Confirme a senha" />
+                <input type="text" name="name" placeholder="Nome" onChange={e => handleForm(e)} />
+                <input type="email" name="email" placeholder="E-mail" onChange={e => handleForm(e)} />
+                <input type="password" name="password" placeholder="Senha" onChange={e => handleForm(e)} />
+                <input type="password" name="confirmPassword" placeholder="Confirme a senha" onChange={e => handleForm(e)} />
                 <button type="submit">Cadastrar</button>
             </form>
             <Link to="/">Já tem uma conta? Entre agora!</Link>
