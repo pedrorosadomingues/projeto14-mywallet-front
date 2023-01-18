@@ -24,7 +24,7 @@ const NewEntryStyled = styled.div`
     h1{
         font-family: "Raleway", sans-serif;
         font-weight: 700;
-        margin: 70px 0 40px 25px;
+        margin: 25px 0 40px 25px;
         font-size: 26px;
         color: #fff;
     }

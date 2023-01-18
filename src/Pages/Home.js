@@ -9,7 +9,7 @@ export default function Home() {
         <HomeStyle>
             <header>
                 <h1>Olá, Fulano!</h1>
-                <ion-icon name="exit-outline"></ion-icon>
+                <Link to="/" ><ion-icon name="exit-outline"></ion-icon></Link>
             </header>
             <Extract />
             <footer>

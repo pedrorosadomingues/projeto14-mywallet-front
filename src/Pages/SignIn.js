@@ -1,19 +1,28 @@
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export default function SignIn(){
+export default function SignIn() {
+
+    const [form, setForm] = useState({ email: "", password: "" });
+    const navigate = useNavigate();
+
+    function handleForm(e) {
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value });
+    }
+
     return (
         <SignInStyle>
             <img src={logo} alt="MyWallet-logo" />
             <form>
-                <input type="email" placeholder="E-mail" />
-                <input type="password" placeholder="Senha" />
+                <input type="email" name="email" placeholder="E-mail" onChange={e => handleForm(e)} />
+                <input type="password" name="password" placeholder="Senha" onChange = {e => handleForm(e)} />
                 <button type=""><Link to="/home">Entrar</Link></button>
             </form>
             <Link to="/sign-up">Não tem uma conta? Cadastre-se!</Link>
-            
+
         </SignInStyle>
     );
 }
