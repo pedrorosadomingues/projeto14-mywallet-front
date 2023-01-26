@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Extract from "../components/Extract";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { useContext } from "react";
 
@@ -9,6 +8,8 @@ import { useContext } from "react";
 export default function Home() {
 
     const { userState } = useContext(UserContext);
+
+    console.log(userState)
 
     return (
 
