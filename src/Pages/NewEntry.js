@@ -12,7 +12,7 @@ export default function NewEntry() {
 
     const { userState } = useContext(UserContext);
 
-    const [form, setForm] = useState({ description: "", value: "", type: "entry", token: userState.token });
+    const [form, setForm] = useState({ description: "", value: "", type: "entry" });
 
     const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ export default function NewEntry() {
 
         e.preventDefault();
 
-        axios.post(`${process.env.REACT_APP_API_URL}/new-entry`, form, { headers: { Authorization: `Bearer ${userState.token}` } })
+        axios.post(`${process.env.REACT_APP_API_URL}/new-entry`, form, { headers: { Authorization: `Bearer ${userState.userToken}` } })
 
             .then(() => alert("Entrada salva com sucesso!"))
 

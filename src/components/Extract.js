@@ -15,12 +15,13 @@ export default function Extract() {
 
         const config = {
 
-            headers: { Authorization: `Bearer ${userState.token}` }
+            headers: { Authorization: `Bearer ${userState.userToken}` }
         }
 
         const confirmDelete = window.confirm("Tem certeza que deseja excluir essa transação?");
 
         if (confirmDelete){
+
         axios.delete(`${process.env.REACT_APP_API_URL}/extract/${id}`, config)
 
             .then((res) => {
@@ -39,7 +40,7 @@ export default function Extract() {
 
         const config = {
 
-            headers: { Authorization: `Bearer ${userState.token}` }
+            headers: { Authorization: `Bearer ${userState.userToken}` }
         }
 
         axios.get(`${process.env.REACT_APP_API_URL}/extract`, config)
